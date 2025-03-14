@@ -1,15 +1,18 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/AuthProvider";
 
 function Signup() {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  //   console.log(isAuthenticated);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const handleSignup = () => {
-    navigate("/") && setIsAuthenticated(true);
-  };
+  // //   console.log(isAuthenticated);
+
+  // const handleSignup = () => {
+  //   navigate("/") && setIsAuthenticated(true);
+  // };
+
+  const { login } = useAuth();
   return (
     <>
       {/* <div className="card bg-base-100 w-96 shadow-sm m-6"> */}
@@ -74,7 +77,7 @@ function Signup() {
           </p>
 
           <button
-            onClick={handleSignup}
+            onClick={login}
             className="mt-6 bg-slate-950 rounded-lg h-[35px] text-white content-end hover:bg-stone-300"
           >
             Sign up

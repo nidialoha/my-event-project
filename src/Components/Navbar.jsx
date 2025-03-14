@@ -1,20 +1,8 @@
-import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/AuthProvider";
 
 function Navbar() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const navigate = useNavigate();
-
-  console.log(isAuthenticated);
-
-  const handleLogin = () => {
-    navigate("sign-up");
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-  };
+  const { isAuthenticated, login, logout } = useAuth();
 
   return (
     <>
@@ -26,13 +14,9 @@ function Navbar() {
         {isAuthenticated ? (
           <p className="mr-6">Hello, User Name!</p>
         ) : (
-          <button
-            onClick={handleLogin}
-            className="mr-6 hover:underline"
-            to="Sign-up"
-          >
+          <NavLink className="mr-6 hover:underline" to="Sign-up">
             Hello, log in!
-          </button>
+          </NavLink>
         )}
 
         <div className="flex-none">
@@ -65,7 +49,7 @@ function Navbar() {
                     <a>Create New Events</a>
                   </li>
                   <li>
-                    <a onClick={handleLogout}>Logout</a>
+                    <a onClick={logout}>Logout</a>
                   </li>
                 </ul>
               </>
@@ -76,7 +60,7 @@ function Navbar() {
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
                   <li>
-                    <a onClick={handleLogin}>Login</a>
+                    <a onClick={login}>Login</a>
                   </li>
                 </ul>
               </>
