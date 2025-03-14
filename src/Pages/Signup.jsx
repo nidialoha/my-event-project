@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthProvider";
 
 function Signup() {
@@ -13,6 +13,7 @@ function Signup() {
   // };
 
   const { login } = useAuth();
+
   return (
     <>
       {/* <div className="card bg-base-100 w-96 shadow-sm m-6"> */}
@@ -76,12 +77,13 @@ function Signup() {
             At least one uppercase letter
           </p>
 
-          <button
+          <NavLink
+            to={"/"}
             onClick={login}
-            className="mt-6 bg-slate-950 rounded-lg h-[35px] text-white content-end hover:bg-stone-300"
+            className="mt-6 bg-slate-950 rounded-lg h-[35px] text-white hover:bg-stone-300 text-center content-center"
           >
             Sign up
-          </button>
+          </NavLink>
           <button className="text-xs mt-3">
             Do you have an account already? Now here login!
           </button>
