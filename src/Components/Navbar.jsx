@@ -12,7 +12,7 @@ function Navbar() {
         </div>
 
         {isAuthenticated ? (
-          <p className="mr-6">Hello, User Name!</p>
+          <p className="mr-6">Hello, User Email</p>
         ) : (
           <NavLink className="mr-6 hover:underline" to="Sign-up">
             Hello, log in!
@@ -62,7 +62,9 @@ function Navbar() {
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
                   <li>
-                    <a onClick={login}>Login</a>
+                    <NavLink className="mr-6 hover:underline" to="Sign-up">
+                      Log in!
+                    </NavLink>
                   </li>
                 </ul>
               </>
