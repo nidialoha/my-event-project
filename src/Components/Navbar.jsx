@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../Context/AuthProvider";
 
 function Navbar() {
@@ -45,9 +45,11 @@ function Navbar() {
                       {/* <span className="badge">New</span> */}
                     </a>
                   </li>
-                  <li>
-                    <a>Create New Events</a>
-                  </li>
+                  <NavLink to="/create-event">
+                    <li>
+                      <a>Create New Events</a>
+                    </li>
+                  </NavLink>
                   <li>
                     <a onClick={logout}>Logout</a>
                   </li>
