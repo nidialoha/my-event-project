@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../Context/AuthProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Signup() {
   const [error, setError] = useState("");
-  const { login } = useAuth();
   const navigate = useNavigate();
   const [signupData, setSignupData] = useState({
     email: "",
@@ -18,6 +16,7 @@ function Signup() {
       [name]: value,
     }));
   };
+
   // console.log(
   //   "🔄 Signup component rendered. isAuthenticated:",
   //   isAuthenticated
@@ -46,11 +45,29 @@ function Signup() {
     // Wenn alle Prüfungen bestanden sind:
     setError("");
     console.log("Signup Data:", signupData);
-
-    login(); // 🔥 Setzt isAuthenticated auf true
-
+    // login(); // 🔥 Setzt isAuthenticated auf true
     // console.log("✅ Navigation wird gestartet...");
-    navigate("/"); // 🔥 Navigiert zur Home-Seite
+    navigate("login"); // 🔥 Navigiert zur Login-Seite von Patrick
+  };
+
+  const signup = async () => {
+    try {
+      const res = await fetch("http://localhost:3001/api/users", {
+        method: "POST",
+        body: JSON.stringify({
+          email: `${signupData.email}`,
+          password: `${signupData.password}`,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -137,7 +154,7 @@ function Signup() {
               type="submit"
               className="mt-6 bg-slate-950 rounded-lg h-[35px] text-white hover:bg-stone-300 text-center content-center"
               // onClick={login}
-              onClick={handleSignup}
+              onClick={signup}
             >
               Sign up
             </button>
