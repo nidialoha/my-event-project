@@ -14,7 +14,7 @@ function Navbar() {
         {isAuthenticated ? (
           <p className="mr-6">Hello, User Email</p>
         ) : (
-          <NavLink className="mr-6 hover:underline" to="Sign-up">
+          <NavLink className="mr-6 hover:underline" to="Login">
             Hello, log in!
           </NavLink>
         )}
