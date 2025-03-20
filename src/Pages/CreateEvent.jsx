@@ -40,6 +40,27 @@ function CreateEvent() {
       location: "",
       description: "",
     });
+
+    const postEvent = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) throw Error("No User");
+        const res = await fetch("http://localhost:3001/events", {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        });
+        const data = await res.json();
+        console.log(data);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    postEvent();
   };
 
   return (

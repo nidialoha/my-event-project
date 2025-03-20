@@ -1,11 +1,10 @@
 import CreateEvent from "./Pages/CreateEvent";
 import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 import MainLayout from "./Layout/MainLayout";
 import NotFound from "./Pages/NotFound";
 import Signup from "./Pages/Signup";
 import { Route, Routes } from "react-router-dom";
-import Login from "./Pages/Login";
-
 
 function App() {
   return (
