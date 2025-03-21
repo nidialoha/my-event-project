@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../Context/AuthProvider";
 
 function Navbar() {
+
   const { isAuthenticated, logout } = useAuth();
 
   return (
@@ -18,6 +19,7 @@ function Navbar() {
             Hello, log in!
           </NavLink>
         )}
+
 
         <div className="flex-none">
           <div className="dropdown dropdown-end">
@@ -71,6 +73,7 @@ function Navbar() {
             )}
           </div>
         </div>
+
       </div>
     </>
   );

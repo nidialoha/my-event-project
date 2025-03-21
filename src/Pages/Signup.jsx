@@ -44,7 +44,7 @@ function Signup() {
 
     // Wenn alle Prüfungen bestanden sind:
     setError("");
-    console.log("Signup Data:", signupData);
+    // console.log("Signup Data:", signupData);
     // login(); // 🔥 Setzt isAuthenticated auf true
     // console.log("✅ Navigation wird gestartet...");
     navigate("/login"); // 🔥 Navigiert zur Login-Seite von Patrick
