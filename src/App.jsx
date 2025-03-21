@@ -32,7 +32,6 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="logout" element={<Logout />} />
           <Route path="create-event" element={<CreateEvent />} />
-          <Route path="details" element={<Details />} />
 
           {/* NOT FOUND PAGE */}
           <Route path="*" element={<NotFound />} />
