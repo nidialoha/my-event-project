@@ -5,19 +5,32 @@ import NotFound from "./Pages/NotFound";
 import Signup from "./Pages/Signup";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login";
-import Details from "./Pages/Details";
 
+import Empty from "./Pages/Empty";
+import { AuthProvider } from "./Context/AuthProvider";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import Logout from "./Pages/Logout";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Routes>
         <Route path="/" element={<MainLayout />}>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
           <Route index element={<Home />} />
 
           {/* //Nested Rootes */}
+          <Route path="Empty" element={<Empty />} />
           <Route path="sign-up" element={<Signup />} />
           <Route path="login" element={<Login />} />
+          <Route path="logout" element={<Logout />} />
           <Route path="create-event" element={<CreateEvent />} />
           <Route path="details" element={<Details />} />
 
@@ -25,7 +38,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 

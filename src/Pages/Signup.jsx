@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Signup() {
@@ -158,6 +158,13 @@ function Signup() {
             >
               Sign up
             </button>
+            <p className="text-center">
+              You have an account already? here{" "}
+              <NavLink className=" hover:text-blue-600" to="/login">
+                {" "}
+                login{" "}
+              </NavLink>
+            </p>
 
             {/* )} */}
           </div>
